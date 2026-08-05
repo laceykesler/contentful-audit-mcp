@@ -1,20 +1,59 @@
 {
   "name": "contentful-audit-mcp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+  "version": "1.1.0",
+  "description": "A Model Context Protocol server that lets an AI assistant audit Contentful content model health — structural defects, orphaned entries, and incomplete entries — and return a severity-ranked report.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "contentful",
+    "headless-cms",
+    "content-audit",
+    "claude",
+    "ai-tools",
+    "typescript"
+  ],
+  "homepage": "https://github.com/laceykesler/contentful-audit-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laceykesler/contentful-audit-mcp.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laceykesler/contentful-audit-mcp/issues"
+  },
+  "author": "Lacey Kesler <Lacey.Kesler@icloud.com> (https://thedocmodel.com)",
+  "license": "MIT",
   "type": "module",
+  "bin": {
+    "contentful-audit-mcp": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
     "contentful": "^11.12.4",
     "contentful-management": "^12.5.1",
     "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
   }
 }
